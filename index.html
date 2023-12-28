@@ -61,6 +61,13 @@
     <script>
         // Sekme başlığını değiştirme
         document.title = "Nerdesin? Geri Dön :)";
+
+        // Kullanıcı başka bir sekme veya pencereye geçtiğinde uyarı gösterme
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                alert('Nerdesin? Geri Dön :)');
+            }
+        });
     </script>
 
 </body>
