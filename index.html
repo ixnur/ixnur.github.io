@@ -61,13 +61,12 @@
     </footer>
 
     <script>
-        // Sekme başlığını değiştirme
-        document.title = "I LOVE AYRAN";
-
-        // Kullanıcı başka bir sekme veya pencereye geçtiğinde uyarı gösterme
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                alert('Nerdesin? Geri Dön :)');
+        // Sayfa görünürlüğü değiştiğinde başlık değiştir
+        document.addEventListener("visibilitychange", function() {
+            if (document.visibilityState === 'hidden') {
+                document.title = "Nerdesin? Geri Dön :)";
+            } else {
+                document.title = "My GitHub Page";
             }
         });
     </script>
