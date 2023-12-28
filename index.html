@@ -62,6 +62,12 @@ blink {
                 opacity: 0;
             }
         }
+        .content-block {
+            background-color: rgba(255, 255, 255, 0.5); /* Beyaz ve transparan arka plan */
+            padding: 20px; /* İçeriği ortalamak için dolgu ekleyin */
+            border-radius: 10px; /* Kenarları yuvarlamak için */
+            text-align: center; /* İçeriği ortalamak için */
+        }
     </style>
 </head>
 <body>
@@ -70,10 +76,13 @@ blink {
         <h1>🌺 ixnur</h1>
     </header>
 
-    <section>
-        <h2></h2>
-        <p>I ❤️ Ayran</p>
-        
+     <section class="content-block"> <!-- Yeni eklenen blok -->
+        <h2>Burada İstediğiniz Başlığı Ekleyin</h2>
+        <p>İstediğiniz içerik</p>
+        <p>Otonom olarak paylaşmak istediğiniz reposityleri eklemek için aşağıdaki bağlantıyı kullanabilirsiniz:</p>
+        <a href="https://github.com/ixnur" target="_blank">
+            <i class="fab fa-github"></i> GitHub Repositories
+        </a>
     </section>
 
     <footer>
