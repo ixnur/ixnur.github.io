@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
-    background-color: rgb(24, 24, 24);
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(to right, black, pink, blue);
+   
     font-family: 'Arial', sans-serif;
     background-image: url('arkaplan.png');
     background-size: cover;
@@ -101,7 +104,12 @@ blink {
     </footer>
 
     <script>
-        // Sayfa görünürlüğü değiştiğinde başlık değiştir
+        document.addEventListener('mousemove', function(e) {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            document.body.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, black, pink, blue)`;
+        });
         document.addEventListener("visibilitychange", function() {
             if (document.visibilityState === 'hidden') {
                 document.title = "Where ya at? Come back:)";
