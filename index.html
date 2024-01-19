@@ -80,30 +80,46 @@ blink {
     <header>
         <h1>🌺nur</h1>
     </header>
+<section class="content-block">
+        <h2>GitHub Repositories</h2>
+        
+        <table class="repo-table">
+            <thead>
+                <tr>
+                    <th>Repo Adı</th>
+                    <th>Açıklama</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody id="repo-list">
+            </tbody>
+        </table>
 
-     <section class="content-block"> <!-- Yeni eklenen blok -->
-        <h2>Burada İstediğiniz Başlığı Ekleyin</h2>
-        <p>İstediğiniz içerik</p>
-        <p>Otonom olarak paylaşmak istediğiniz reposityleri eklemek için aşağıdaki bağlantıyı kullanabilirsiniz:</p>
-        <a href="https://github.com/ixnur" target="_blank">
-        <i class="fab fa-github"></i> GitHub Repositories
-        </a>
-         <h2>NotworkScanner Public</h2>
-        <p>Basit ağ tarama kodu - Ağınızı tarar, cihazların IP, MAC adresi, vb. bilgilerini bulur.</p>
-        <ul>
-            <li>
-                <a href="https://github.com/ixnur/NotworkScanner" target="ixnur-repositories">
-                    <i class="fab fa-github"></i> NotworkScanner GitHub Repository
-                </a>
-            </li>
-        </ul>
     </section>
-
     <footer>
         <p>&copy; 2023 @ixnur | <a href="https://github.com/ixnur"><i class="fab fa-github"></i></a></p>
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://api.github.com/users/ixnur/repos')
+                .then(response => response.json())
+                .then(data => {
+                    const repoList = document.getElementById('repo-list');
+
+                    data.forEach(repo => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${repo.name}</td>
+                            <td>${repo.description}</td>
+                            <td><a href="${repo.html_url}" target="_blank"><i class="fab fa-github"></i> GitHub Link</a></td>
+                        `;
+                        repoList.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('GitHub repositorilerini çekerken bir hata oluştu:', error));
+        });
+        
         document.addEventListener('mousemove', function(e) {
             const x = e.clientX / window.innerWidth;
             const y = e.clientY / window.innerHeight;
